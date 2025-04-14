@@ -1,0 +1,28 @@
+<p>component001 works!</p>
+<p>{{pubVal}} {{proVal}}</p>
+<button (click)="test($event)">123</button>
+<div [title]="pubVal">123</div>
+
+<hr />
+<div *ngFor="let item of arr;index as i; first as isFirst">{{item}} / {{i}} / <span *ngIf="isFirst">第一位</span></div>
+
+<hr />
+<p>
+    <button (click)="clickSwitchBtn()">+1</button>
+    {{switchNum}}
+</p>
+<div [ngSwitch]="switchNum">
+    <p *ngSwitchDefault>这是0</p>
+    <p *ngSwitchCase="1">这是{{switchNum}}</p>
+    <p *ngSwitchCase="2">这是{{switchNum}}</p>
+    <p *ngSwitchCase="3">这是{{switchNum}}</p>
+</div>
+
+<hr />
+<div [ngClass]="{'red': true}">红</div>
+
+<hr />
+<div>{{"abc" | myPipe}}</div>
+
+<hr />
+<input type="text" [(ngModel)]="inpText" /> <span (click)="clearInpText()">{{inpText}}</span>

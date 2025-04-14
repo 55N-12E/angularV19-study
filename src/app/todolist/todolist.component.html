@@ -1,0 +1,30 @@
+<style>
+    ul, li{
+        list-style: none;
+    }
+</style>
+
+<h2>待办事项</h2>
+<div>
+    <input #searchInput [(ngModel)]="searchVal" />&nbsp;
+    <button (click)="searchBtn()">搜索</button>
+    <button (click)="confirmBtn()">完成</button>
+    <button (click)="check()">123</button>
+</div>
+<hr />
+<p class="red">待办列表</p>
+<ul>
+    <li *ngFor="let item of historyArr;index as key">
+        <input type="checkbox" [id]="item.name" [(ngModel)]="item.status" />
+        <label [htmlFor]="item.name">{{item.name}}</label>
+        <button (click)="delHistory(key)" style="margin-left: 10px;">删除</button>
+    </li>
+</ul>
+<p class="red">完成列表</p>
+<ul>
+    <li *ngFor="let item of finishArr;index as key">
+        <input type="checkbox"[id]="item.name" />
+        <label [htmlFor]="item.name">{{item.name}}</label>
+    </li>
+</ul>
+<div>{{historyArr | json}}</div>

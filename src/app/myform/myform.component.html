@@ -1,0 +1,29 @@
+<style>
+    .title{
+        text-align: center;
+    }
+    ul, li{
+        list-style: none;
+    }
+</style>
+
+<p>myform works!</p>
+<h2 class="title">人员系统</h2>
+
+<div>
+    <ul>
+        <li>姓名: <input type="text" [(ngModel)]="formObj.userName" /></li>
+        <li>
+            性别:
+            <input type="radio" value="1" id="sex1" [(ngModel)]="formObj.sex" /><label for="sex1">男</label>
+            <input type="radio" value="2" id="sex2" [(ngModel)]="formObj.sex" /><label for="sex2">女</label>
+        </li>
+        <li>
+            备注:
+            <textarea type="text" [(ngModel)]="formObj.mark"></textarea>
+        </li>
+    </ul>
+
+    <div>{{formObj | json }}</div>
+    <button (click)="doSbumit()">提交</button>
+</div>
