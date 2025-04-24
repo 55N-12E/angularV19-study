@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, output, EventEmitter } from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 
@@ -21,6 +21,14 @@ export class Component001Component {
 
   public inpText: string = "";
 
+  @Input(/* {
+    alies: string | udf, 
+    required: boolean | udf, 
+    transform: (val: any) => {
+      return val
+    }
+  } */) testMsg!: string;
+
   constructor(){
     
   }
@@ -36,5 +44,18 @@ export class Component001Component {
 
   clearInpText(){
     this.inpText = "";
+  }
+
+  checkFatherVal(){
+    console.log(this.testMsg)
+  }
+
+  @Output() private outer = new EventEmitter();
+  sendParent(){
+    this.outer.emit("我是使用@Output装饰器+new EventEmitter创建")
+  }
+  public outputFNC = output<string>();
+  sendParent2(){
+    this.outputFNC.emit("我是output函数创建")
   }
 }

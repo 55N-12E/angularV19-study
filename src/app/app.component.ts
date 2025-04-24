@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Component001Component } from "./component001/component001.component";
 import {MyformComponent} from "./myform/myform.component";
@@ -15,4 +15,20 @@ import {} from "rxjs"
 })
 export class AppComponent {
   title = 'my-ng-demo';
+
+  appTest(){
+    console.log('this is app')
+  }
+
+  @ViewChild("child001") appComponent001!: ElementRef;
+  getChildEle(){
+    console.log(this.appComponent001)
+  }
+
+  getChildVal(e: any){
+    console.log(e)
+  }
+  getChildVal2(e: any){
+    console.log(e)
+  }
 }

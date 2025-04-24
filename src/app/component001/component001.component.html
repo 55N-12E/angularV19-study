@@ -26,3 +26,8 @@
 
 <hr />
 <input type="text" [(ngModel)]="inpText" /> <span (click)="clearInpText()">{{inpText}}</span>
+
+<hr />
+<button (click)="checkFatherVal()">查看父组件通信</button>
+<button (click)="sendParent()">子传父</button>
+<button (click)="sendParent2()">子传父2</button>
